@@ -1,0 +1,16 @@
+{% extends 'main.html' %}
+
+
+{% block content %}
+
+    <h2>{{ project.title }}</h2>
+    <hr>
+    {% for tag in tags %}
+        <span style="border: 1px solid rgb(242, 187, 187); padding: 2px;">{{ tag }}</span>
+    {% endfor %}
+
+    <p>{{ project.description }}</p>
+
+
+{% endblock %}
+
