@@ -7,8 +7,11 @@ document.addEventListener('DOMContentLoaded', function () {
 let alertWrapper = document.querySelector('.alert');
 let alertClose = document.querySelector('.alert__close');
 
+function alertDisplay() {
+    console.log('Alert wrapper clicked!');
+    alertWrapper.style.display = 'none';
+}
+
 if (alertWrapper) {
-  alertClose.addEventListener('click', ()=>
-    alertWrapper.style.display = 'none'
-  );
+    alertClose.addEventListener('click', alertDisplay, false);
 }
