@@ -1,4 +1,3 @@
-from email import message
 from django.shortcuts import render, redirect
 from users.models import Profile
 from projects.models import Project
@@ -7,6 +6,9 @@ from django.contrib.auth.decorators import login_required
 from django.contrib.auth.models import User
 from django.contrib import messages
 from .forms import CustomUserCreationForm, ProfileForm, SkillForm
+
+from .utils import searchProfiles, paginateProfiles
+
 # Create your views here.
 
 def registerUser(request):
@@ -69,13 +71,16 @@ def logoutUser(request):
     messages.success(request, 'User successfully logged out!')
     return redirect('login')
 
+
 def profile(request):
+    profiles, search_query = searchProfiles(request)
 
-    profiles = Profile.objects.all()
-
+    custom_range, profiles = paginateProfiles(request, profiles, 2)
 
     context = {
-        'profiles': profiles
+        'profiles': profiles,
+        'custom_range': custom_range,
+        'search_query': search_query
     }
 
     return render(request, 'users/profiles.html', context)
