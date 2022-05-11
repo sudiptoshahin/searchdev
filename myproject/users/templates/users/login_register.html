@@ -56,7 +56,8 @@
         <p>Hello Developer, Welcome Back!</p>
       </div>
 
-      <form action="{% url 'login' %}" method="POST" class="form auth__form">
+      <!-- action="" is empty for the flexible login with the request.GET['next'] page  -->
+      <form action="" method="POST" class="form auth__form">
         {% csrf_token %}
         <!-- Input:Email -->
         <div class="form__field">
