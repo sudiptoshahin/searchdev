@@ -51,11 +51,14 @@
             </div>
           {% endfor %}
         </div>
+
+        {% include 'pagination.html' with custom_range=custom_range query_sets=profiles %}
+
       </div>
     </section>
 
-    {% include 'pagination.html' with custom_range=custom_range profiles=profiles %}
 
-    </main>
+
+  </main>
 
 {% endblock %}
