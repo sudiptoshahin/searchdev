@@ -216,8 +216,7 @@ def inbox(request):
 
 @login_required(login_url='login')
 def viewMessage(request, pk):
-    profile = request.user.profile
-    message = profile.messages.get(id=pk)
+    profile = request.user.profileessage = profile.messages.get(id=pk)
 
     # unread them
     if message.is_read == False:
