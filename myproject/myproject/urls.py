@@ -13,6 +13,9 @@ urlpatterns = [
     path('projects/', include('projects.urls')),
     # users
     path('', include('users.urls')),
+    # api's
+    path('api/', include('api.urls')),
+
 
     # reset user password
     path('rest_password/', auth_views.PasswordResetView.as_view(template_name='users/reset_password.html'), name='reset_password'),
